@@ -26,5 +26,70 @@ namespace JogoDaVelha
         {
 
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Reiniciar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonO_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TimeJogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
