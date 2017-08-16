@@ -203,7 +203,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(261, 352);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(284, 351);
             this.Controls.Add(this.TimeJogo);
             this.Controls.Add(this.Reiniciar);
             this.Controls.Add(this.button33);
@@ -218,7 +219,9 @@
             this.Controls.Add(this.buttonO);
             this.Controls.Add(this.Placar);
             this.Controls.Add(this.buttonX);
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Jogo da velha";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
