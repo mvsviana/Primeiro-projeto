@@ -120,21 +120,41 @@ namespace JogoDaVelha
                 //Informa quem é o ganhador.
                 MessageBox.Show(string.Format("O ganhador da rodada é: {0}", !VezX ? "X" : "O"), "Fim da rodada!");
             }
-            
             /*
-            // Verificação se houve empate.
-            if (
-                //Verificação da linha 1
-                button11.Text != string.Empty && button11.Text != button12.Text && button12.Text != button13.Text ||
-                //Verificação da linha 2
-                button21.Text != string.Empty && button21.Text != button22.Text && button22.Text != button23.Text ||
-                //Verificação da linha 3
-                button31.Text != string.Empty && button31.Text != button32.Text && button32.Text != button33.Text
-                )
-            {
+            // Caso não tenha ganhador, informa que teve um empate.
+            else{
                 MessageBox.Show("Houve empate na partida.");
             }
-            */
+           */
+        }
+
+        private void ReiniciarJogo()
+        {
+            foreach (Control item in this.Controls)
+            {
+                if (item is Button)
+                {
+                    
+                    item.Enabled = true;
+                    item.Text = String.Empty;
+                    buttonX.Text = "X";
+                    buttonO.Text = "O";
+                    if (!VezX)
+                    {
+                        buttonX.Enabled = false;
+                    }
+                    else
+                    {
+                        buttonO.Enabled = false;
+                    }
+                    Reiniciar.Text = "REINICIAR";
+
+                }
+            }
+        }
+        private void Reiniciar_Click(object sender, EventArgs e)
+        {
+                ReiniciarJogo();
         }
 
         private void label1_Click(object sender, EventArgs e){
@@ -191,11 +211,6 @@ namespace JogoDaVelha
 
         }
 
-        private void Reiniciar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonO_Click(object sender, EventArgs e)
         {
 
@@ -206,5 +221,9 @@ namespace JogoDaVelha
 
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/mvsviana");
+        }
     }
-}
+    }

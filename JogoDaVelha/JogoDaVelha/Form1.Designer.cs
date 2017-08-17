@@ -43,13 +43,14 @@
             this.button33 = new System.Windows.Forms.Button();
             this.Reiniciar = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.TimeJogo = new System.Windows.Forms.ProgressBar();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonX
             // 
             this.buttonX.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX.Location = new System.Drawing.Point(12, 43);
+            this.buttonX.Location = new System.Drawing.Point(12, 35);
             this.buttonX.Name = "buttonX";
             this.buttonX.Size = new System.Drawing.Size(75, 52);
             this.buttonX.TabIndex = 0;
@@ -61,7 +62,7 @@
             // Placar
             // 
             this.Placar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Placar.Location = new System.Drawing.Point(78, 17);
+            this.Placar.Location = new System.Drawing.Point(78, 9);
             this.Placar.Name = "Placar";
             this.Placar.Size = new System.Drawing.Size(105, 23);
             this.Placar.TabIndex = 1;
@@ -72,7 +73,7 @@
             // buttonO
             // 
             this.buttonO.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonO.Location = new System.Drawing.Point(174, 43);
+            this.buttonO.Location = new System.Drawing.Point(174, 35);
             this.buttonO.Name = "buttonO";
             this.buttonO.Size = new System.Drawing.Size(75, 52);
             this.buttonO.TabIndex = 2;
@@ -191,13 +192,28 @@
             this.Reiniciar.UseVisualStyleBackColor = true;
             this.Reiniciar.Click += new System.EventHandler(this.Reiniciar_Click);
             // 
-            // TimeJogo
+            // linkLabel1
             // 
-            this.TimeJogo.Location = new System.Drawing.Point(42, 101);
-            this.TimeJogo.Name = "TimeJogo";
-            this.TimeJogo.Size = new System.Drawing.Size(172, 23);
-            this.TimeJogo.TabIndex = 14;
-            this.TimeJogo.Click += new System.EventHandler(this.TimeJogo_Click);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(186, 364);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(72, 13);
+            this.linkLabel1.TabIndex = 13;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Marcus Viana";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(90, 106);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 23);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "TEMPO: ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Form1
             // 
@@ -205,8 +221,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(263, 388);
-            this.Controls.Add(this.TimeJogo);
+            this.ClientSize = new System.Drawing.Size(261, 386);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.Reiniciar);
             this.Controls.Add(this.button33);
             this.Controls.Add(this.button32);
@@ -226,6 +243,7 @@
             this.Text = "Jogo da velha";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -245,7 +263,8 @@
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button Reiniciar;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ProgressBar TimeJogo;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
