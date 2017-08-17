@@ -183,7 +183,7 @@
             // Reiniciar
             // 
             this.Reiniciar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reiniciar.Location = new System.Drawing.Point(42, 316);
+            this.Reiniciar.Location = new System.Drawing.Point(42, 320);
             this.Reiniciar.Name = "Reiniciar";
             this.Reiniciar.Size = new System.Drawing.Size(172, 31);
             this.Reiniciar.TabIndex = 12;
@@ -204,7 +204,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(284, 351);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(263, 388);
             this.Controls.Add(this.TimeJogo);
             this.Controls.Add(this.Reiniciar);
             this.Controls.Add(this.button33);
