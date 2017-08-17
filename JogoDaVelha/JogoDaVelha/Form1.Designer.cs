@@ -61,9 +61,9 @@
             // Placar
             // 
             this.Placar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Placar.Location = new System.Drawing.Point(22, 17);
+            this.Placar.Location = new System.Drawing.Point(78, 17);
             this.Placar.Name = "Placar";
-            this.Placar.Size = new System.Drawing.Size(217, 23);
+            this.Placar.Size = new System.Drawing.Size(105, 23);
             this.Placar.TabIndex = 1;
             this.Placar.Text = "PLACAR";
             this.Placar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -183,7 +183,7 @@
             // Reiniciar
             // 
             this.Reiniciar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reiniciar.Location = new System.Drawing.Point(42, 320);
+            this.Reiniciar.Location = new System.Drawing.Point(42, 319);
             this.Reiniciar.Name = "Reiniciar";
             this.Reiniciar.Size = new System.Drawing.Size(172, 31);
             this.Reiniciar.TabIndex = 12;

@@ -42,16 +42,6 @@ namespace JogoDaVelha
                 }
             }
         }
-        
-        /*
-        private void VerificarBotaoHabilitado(object sender, EventArgs e){
-            foreach (Control item in this.Controls) {
-               
-                    ((Button)sender).Enabled = false;
-                
-            }
-        }
-        */
 
         private void ButtonClick(object sender, EventArgs e) {
             //Acessando as propriedades.
@@ -69,45 +59,85 @@ namespace JogoDaVelha
                 buttonX.Enabled = false; //Desabilita o botão "X"
             }
 
-            //Chama o metodo de verificação de vencedor.
+            //Chama o metodo de verificação da partida.
             VerificaJogo();
-
         }
 
-        //Verificação se à ganhador no jogo.
+        //Metodo de verificação da partida.
         private void VerificaJogo()
         {
-
+            //Verificação se à ganhador no jogo.
             if (
-                //Verifica a linha 1
+                //Verificação da linha 1
                 button11.Text != string.Empty && button11.Text == button12.Text && button12.Text == button13.Text ||
-                //Verifica a linha 2
+                //Verificação da linha 2
                 button21.Text != string.Empty && button21.Text == button22.Text && button22.Text == button23.Text ||
-                //Verifica a linha 3
+                //Verificação da linha 3
                 button31.Text != string.Empty && button31.Text == button32.Text && button32.Text == button33.Text ||
 
-                //Verifica a coluna 1
+                //Verificação da coluna 1
                 button11.Text != string.Empty && button11.Text == button21.Text && button21.Text == button31.Text ||
-                //Verifica a coluna 2
+                //Verificação da coluna 2
                 button12.Text != string.Empty && button12.Text == button22.Text && button22.Text == button32.Text ||
-                //Verifica a coluna 3
+                //Verificação da coluna 3
                 button13.Text != string.Empty && button13.Text == button23.Text && button23.Text == button33.Text ||
 
-                //Verifica a diagonal principal
+                //Verificação da diagonal principal
                 button11.Text != string.Empty && button11.Text == button22.Text && button22.Text == button33.Text ||
-                //Verifica a diagonal secundaria
+                //Verificação da diagonal secundaria
                 button13.Text != string.Empty && button13.Text == button22.Text && button22.Text == button31.Text
+                ){ 
+                    
+                    //Verifica se à botões habilitados e desabilita, evitando jogadas após uma vitoria. 
+                    if (button11.Enabled){ // Botão 1 da primeira linha.
+                        button11.Enabled = false;
+                    }
+                    if (button12.Enabled){ // Botão 2 da primeira linha.
+                        button12.Enabled = false;
+                    }
+                    if (button13.Enabled){ // Botão 3 da primeira linha.
+                        button13.Enabled = false;
+                    }
+                    if (button21.Enabled){ // Botão 1 da segunda linha.
+                        button21.Enabled = false;
+                    }
+                    if (button22.Enabled){ //Botão 2 da segunda linha.
+                        button22.Enabled = false;
+                    }
+                    if (button23.Enabled){ //Botão 3 da segunda linha.
+                        button23.Enabled = false;
+                    }
+                    if (button31.Enabled){ // Botão 1 da terceira linha.
+                        button31.Enabled = false;
+                    }
+                    if (button32.Enabled){ // Botão 2 da terceira linha.
+                        button32.Enabled = false;
+                    }
+                    if (button33.Enabled){ // Botão 3 da terceira linha.
+                        button33.Enabled = false;
+                    }
 
-               )
-            {
                 //Informa quem é o ganhador.
                 MessageBox.Show(string.Format("O ganhador da rodada é: {0}", !VezX ? "X" : "O"), "Fim da rodada!");
             }
-
+            
+            /*
+            // Verificação se houve empate.
+            if (
+                //Verificação da linha 1
+                button11.Text != string.Empty && button11.Text != button12.Text && button12.Text != button13.Text ||
+                //Verificação da linha 2
+                button21.Text != string.Empty && button21.Text != button22.Text && button22.Text != button23.Text ||
+                //Verificação da linha 3
+                button31.Text != string.Empty && button31.Text != button32.Text && button32.Text != button33.Text
+                )
+            {
+                MessageBox.Show("Houve empate na partida.");
+            }
+            */
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private void label1_Click(object sender, EventArgs e){
             
         }
 
