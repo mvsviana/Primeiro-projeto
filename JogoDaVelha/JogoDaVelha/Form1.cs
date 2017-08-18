@@ -14,12 +14,14 @@ namespace JogoDaVelha
     {
         bool VezX = true;
 
-        public Form1(){
+        public Form1()
+        {
 
             InitializeComponent();
         }
         //Painel principal do jogo.
-        private void Form1_Load(object sender, EventArgs e) {
+        private void Form1_Load(object sender, EventArgs e)
+        {
             //Cria um evento ao clickar em cada botão do painel.
             button11.Click += new EventHandler(ButtonClick);
             button12.Click += new EventHandler(ButtonClick);
@@ -30,31 +32,36 @@ namespace JogoDaVelha
             button31.Click += new EventHandler(ButtonClick);
             button32.Click += new EventHandler(ButtonClick);
             button33.Click += new EventHandler(ButtonClick);
-           
+
             //Sempre começa com o "X".
             buttonO.Enabled = false;
-            
-            //Faz com que ao clicar no botão não pule para o prox.
-            foreach (Control item in this.Controls) { 
 
-                if (item is Button) { //Verifica se é um botão então ele não permiti pular para o prox.
+            //Faz com que ao clicar no botão não pule para o prox.
+            foreach (Control item in this.Controls)
+            {
+
+                if (item is Button)
+                { //Verifica se é um botão então ele não permiti pular para o prox.
                     item.TabStop = false;
                 }
             }
         }
 
-        private void ButtonClick(object sender, EventArgs e) {
+        private void ButtonClick(object sender, EventArgs e)
+        {
             //Acessando as propriedades.
             ((Button)sender).Text = this.VezX ? "X" : "O"; //Se for a vez do "X", ele insere o X senão insere o "O".
             ((Button)sender).Enabled = false; //Assim que inserir ele desabilita o butão.
             VezX = !VezX; //Quando for a vez do "O"
 
             //Verifica e habilita o botão do jogador da vez.
-            if (VezX) { //Se for a vez do "X".
+            if (VezX)
+            { //Se for a vez do "X".
                 buttonO.Enabled = false;//Desabilita o botão "O".
                 buttonX.Enabled = true;//Habilita o botão "X".
             }
-            else { //Senão for a vez do "X".
+            else
+            { //Senão for a vez do "X".
                 buttonO.Enabled = true; //Habilita o botão "O"
                 buttonX.Enabled = false; //Desabilita o botão "X"
             }
@@ -86,79 +93,133 @@ namespace JogoDaVelha
                 button11.Text != string.Empty && button11.Text == button22.Text && button22.Text == button33.Text ||
                 //Verificação da diagonal secundaria
                 button13.Text != string.Empty && button13.Text == button22.Text && button22.Text == button31.Text
-                ){ 
-                    
-                    //Verifica se à botões habilitados e desabilita, evitando jogadas após uma vitoria. 
-                    if (button11.Enabled){ // Botão 1 da primeira linha.
-                        button11.Enabled = false;
-                    }
-                    if (button12.Enabled){ // Botão 2 da primeira linha.
-                        button12.Enabled = false;
-                    }
-                    if (button13.Enabled){ // Botão 3 da primeira linha.
-                        button13.Enabled = false;
-                    }
-                    if (button21.Enabled){ // Botão 1 da segunda linha.
-                        button21.Enabled = false;
-                    }
-                    if (button22.Enabled){ //Botão 2 da segunda linha.
-                        button22.Enabled = false;
-                    }
-                    if (button23.Enabled){ //Botão 3 da segunda linha.
-                        button23.Enabled = false;
-                    }
-                    if (button31.Enabled){ // Botão 1 da terceira linha.
-                        button31.Enabled = false;
-                    }
-                    if (button32.Enabled){ // Botão 2 da terceira linha.
-                        button32.Enabled = false;
-                    }
-                    if (button33.Enabled){ // Botão 3 da terceira linha.
-                        button33.Enabled = false;
-                    }
+                )
+            {
+                //Chama metodo de desabilita os botões.   
+                DesabilitandoTodosBotoes();
 
                 //Informa quem é o ganhador.
-                MessageBox.Show(string.Format("O ganhador da rodada é: {0}", !VezX ? "X" : "O"), "Fim da rodada!");
+                MessageBox.Show(string.Format("O ganhador da rodada é: {0}", !VezX ? "X" : "O"));
             }
-            /*
-            // Caso não tenha ganhador, informa que teve um empate.
-            else{
-                MessageBox.Show("Houve empate na partida.");
+
+            // Caso não tenha ganhador, chama o metodo de verificação de empate.
+            else
+            {
+                //Chamada de metodo.
+                VerificaEmpate();
             }
-           */
+
         }
 
+        //Metodo para verificar um empate.
+        private void VerificaEmpate()
+        {
+            if (
+                button11.Text != string.Empty && //Se o botão 1 da linha 1 for diferente de vazio.
+                button12.Text != string.Empty && //Se o botão 2 da linha 1 for diferente de vazio.
+                button13.Text != string.Empty && //Se o botão 3 da linha 1 for diferente de vazio.
+                button21.Text != string.Empty && //Se o botão 1 da linha 2 for diferente de vazio.
+                button22.Text != string.Empty && //Se o botão 2 da linha 2 for diferente de vazio.
+                button23.Text != string.Empty && //Se o botão 3 da linha 2 for diferente de vazio.
+                button31.Text != string.Empty && //Se o botão 1 da linha 3 for diferente de vazio.
+                button32.Text != string.Empty && //Se o botão 2 da linha 3 for diferente de vazio.
+                button33.Text != string.Empty    //Se o botão 3 da linha 3 for diferente de vazio.
+                )
+            {
+                //Informa que teve um empate na jogada.
+                MessageBox.Show("Houve um empate!");
+            }
+        }
+
+        //Metodo para a desabilitação dos botões.
+        private void DesabilitandoTodosBotoes()
+        {
+
+            //Verifica se à botões habilitados e desabilita, evitando jogadas após uma vitoria. 
+            if (button11.Enabled)
+            { // Botão 1 da primeira linha.
+                button11.Enabled = false;
+            }
+            if (button12.Enabled)
+            { // Botão 2 da primeira linha.
+                button12.Enabled = false;
+            }
+            if (button13.Enabled)
+            { // Botão 3 da primeira linha.
+                button13.Enabled = false;
+            }
+            if (button21.Enabled)
+            { // Botão 1 da segunda linha.
+                button21.Enabled = false;
+            }
+            if (button22.Enabled)
+            { //Botão 2 da segunda linha.
+                button22.Enabled = false;
+            }
+            if (button23.Enabled)
+            { //Botão 3 da segunda linha.
+                button23.Enabled = false;
+            }
+            if (button31.Enabled)
+            { // Botão 1 da terceira linha.
+                button31.Enabled = false;
+            }
+            if (button32.Enabled)
+            { // Botão 2 da terceira linha.
+                button32.Enabled = false;
+            }
+            if (button33.Enabled)
+            { // Botão 3 da terceira linha.
+                button33.Enabled = false;
+            }
+        }
+
+        //Metodo de reiniciar o jogo.
         private void ReiniciarJogo()
         {
+            //Vai verificar no painel tudo que for botão
             foreach (Control item in this.Controls)
             {
+                //Se o item for botão então ele atribui os valores para cada botão.
                 if (item is Button)
                 {
-                    
-                    item.Enabled = true;
-                    item.Text = String.Empty;
-                    buttonX.Text = "X";
-                    buttonO.Text = "O";
-                    if (!VezX)
+
+                    item.Enabled = true;// Habilita os botões novamente
+                    item.Text = String.Empty;// Todos os botões ficam vazios.
+                    buttonX.Text = "X";// Atribiu o nome do botão "X".
+                    buttonO.Text = "O";// Atribui o nome do botão "O".
+
+                    // Verifica quem fez a ultima jogada antes de reiniciar o jogo.
+                    if (!VezX)// "!" Faz a negação da VezX, então se não for a vez do "x".
                     {
-                        buttonX.Enabled = false;
+                        buttonX.Enabled = false;// Caso não for a vez do "X" ele desabilita.
                     }
-                    else
+                    else// Senão ele habilita o botão do "X"
                     {
-                        buttonO.Enabled = false;
+                        buttonO.Enabled = false;// Caso for a vez do "X" ele desabilita o "O".
                     }
-                    Reiniciar.Text = "REINICIAR";
+                    Reiniciar.Text = "REINICIAR";//Botão de Reiniciar recebe seu devido nome.
 
                 }
             }
         }
+
+        //Metodo de ação ao clicar no botão reiniciar.
         private void Reiniciar_Click(object sender, EventArgs e)
         {
-                ReiniciarJogo();
+            //Chama o metodo de reiniciar o jogo.
+            ReiniciarJogo();
         }
 
-        private void label1_Click(object sender, EventArgs e){
-            
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Contato com o desenvolvedor do jogo.
+            System.Diagnostics.Process.Start("https://github.com/mvsviana");
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -220,10 +281,5 @@ namespace JogoDaVelha
         {
 
         }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://github.com/mvsviana");
-        }
     }
-    }
+}

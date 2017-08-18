@@ -49,6 +49,7 @@
             // 
             // buttonX
             // 
+            this.buttonX.BackColor = System.Drawing.Color.Transparent;
             this.buttonX.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX.Location = new System.Drawing.Point(12, 35);
             this.buttonX.Name = "buttonX";
@@ -56,7 +57,7 @@
             this.buttonX.TabIndex = 0;
             this.buttonX.Text = "X";
             this.buttonX.UseMnemonic = false;
-            this.buttonX.UseVisualStyleBackColor = true;
+            this.buttonX.UseVisualStyleBackColor = false;
             this.buttonX.Click += new System.EventHandler(this.button1_Click);
             // 
             // Placar
@@ -72,6 +73,7 @@
             // 
             // buttonO
             // 
+            this.buttonO.BackColor = System.Drawing.Color.Transparent;
             this.buttonO.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonO.Location = new System.Drawing.Point(174, 35);
             this.buttonO.Name = "buttonO";
@@ -79,7 +81,7 @@
             this.buttonO.TabIndex = 2;
             this.buttonO.Text = "O";
             this.buttonO.UseMnemonic = false;
-            this.buttonO.UseVisualStyleBackColor = true;
+            this.buttonO.UseVisualStyleBackColor = false;
             this.buttonO.Click += new System.EventHandler(this.buttonO_Click);
             // 
             // button11
