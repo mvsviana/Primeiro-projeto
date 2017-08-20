@@ -12,7 +12,11 @@ namespace JogoDaVelha
 {
     public partial class Form1 : Form
     {
+        //Inicia o jogo sempre com a vez do "X"
         bool VezX = true;
+        //Inicialização do placar.
+        int placax = 0, placao = 0;
+        
 
         public Form1()
         {
@@ -33,6 +37,10 @@ namespace JogoDaVelha
             button32.Click += new EventHandler(ButtonClick);
             button33.Click += new EventHandler(ButtonClick);
 
+            //Inicialização do placar.
+            PlacarX.Text = Convert.ToString(placax);
+            PlacarO.Text = Convert.ToString(placao);
+
             //Sempre começa com o "X".
             buttonO.Enabled = false;
 
@@ -47,6 +55,7 @@ namespace JogoDaVelha
             }
         }
 
+        //Metodo para marcação de jogadas, "X" e "O".
         private void ButtonClick(object sender, EventArgs e)
         {
             //Acessando as propriedades.
@@ -68,6 +77,7 @@ namespace JogoDaVelha
 
             //Chama o metodo de verificação da partida.
             VerificaJogo();
+           
         }
 
         //Metodo de verificação da partida.
@@ -98,16 +108,47 @@ namespace JogoDaVelha
                 //Chama metodo de desabilita os botões.   
                 DesabilitandoTodosBotoes();
 
+                //Chama o metodo de placar.
+                Placarxo();
+
                 //Informa quem é o ganhador.
                 MessageBox.Show(string.Format("O ganhador da rodada é: {0}", !VezX ? "X" : "O"));
-            }
 
+                //Mostra o placar atualizado.
+                PlacarX.Text = Convert.ToString(placax);
+                PlacarO.Text = Convert.ToString(placao);
+
+            }
             // Caso não tenha ganhador, chama o metodo de verificação de empate.
             else
             {
                 //Chamada de metodo.
                 VerificaEmpate();
             }
+
+        }
+
+        //Metodo para fazer a pontuação do placar.
+        private void Placarxo() {
+
+            /*
+             A ideia aqui é verificar a vez do jogador, mais como já foi informado que houve um
+             ganhador então ele pega e pontua quem fez a ultima jogada.
+             
+             Só lembrando que após ser informado que houve um ganhador todos os butôes de jogada
+             são desabilitados e assim faz com que não haja um erro na pontuação.
+
+            */
+            // Verificação de jogada.
+            if (VezX) // Se a vez de jogar for do "X"
+            {
+                placao += 1; // O jogador "O" vai ser pontuado
+            }
+            else if (!VezX) // Se a vez de jogar for do "O"
+            {
+                placax += 1; // O jogador "X" vai ser pontuado
+            }
+
 
         }
 
@@ -203,7 +244,7 @@ namespace JogoDaVelha
                 }
             }
         }
-
+        
         //Metodo de ação ao clicar no botão reiniciar.
         private void Reiniciar_Click(object sender, EventArgs e)
         {
@@ -211,6 +252,7 @@ namespace JogoDaVelha
             ReiniciarJogo();
         }
 
+        //Metodo de ação ao clicar no link "Marcus Viana".
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Contato com o desenvolvedor do jogo.
@@ -219,7 +261,7 @@ namespace JogoDaVelha
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -277,7 +319,22 @@ namespace JogoDaVelha
 
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void TimeJogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tempojogo_Tick(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

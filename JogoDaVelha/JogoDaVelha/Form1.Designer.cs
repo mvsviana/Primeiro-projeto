@@ -42,9 +42,13 @@
             this.button32 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
             this.Reiniciar = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.O = new System.Windows.Forms.Label();
+            this.PlacarX = new System.Windows.Forms.Label();
+            this.PlacarO = new System.Windows.Forms.Label();
+            this.tempojogo = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // buttonX
@@ -63,9 +67,9 @@
             // Placar
             // 
             this.Placar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Placar.Location = new System.Drawing.Point(78, 9);
+            this.Placar.Location = new System.Drawing.Point(83, 9);
             this.Placar.Name = "Placar";
-            this.Placar.Size = new System.Drawing.Size(105, 23);
+            this.Placar.Size = new System.Drawing.Size(95, 23);
             this.Placar.TabIndex = 1;
             this.Placar.Text = "PLACAR";
             this.Placar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -216,6 +220,47 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "TEMPO: ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 16;
+            // 
+            // O
+            // 
+            this.O.AutoSize = true;
+            this.O.Location = new System.Drawing.Point(195, 14);
+            this.O.Name = "O";
+            this.O.Size = new System.Drawing.Size(0, 13);
+            this.O.TabIndex = 17;
+            this.O.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // PlacarX
+            // 
+            this.PlacarX.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlacarX.Location = new System.Drawing.Point(9, 4);
+            this.PlacarX.Name = "PlacarX";
+            this.PlacarX.Size = new System.Drawing.Size(78, 23);
+            this.PlacarX.TabIndex = 18;
+            this.PlacarX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PlacarO
+            // 
+            this.PlacarO.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlacarO.Location = new System.Drawing.Point(171, 9);
+            this.PlacarO.Name = "PlacarO";
+            this.PlacarO.Size = new System.Drawing.Size(78, 23);
+            this.PlacarO.TabIndex = 19;
+            this.PlacarO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tempojogo
+            // 
+            this.tempojogo.Interval = 1000;
+            this.tempojogo.Tick += new System.EventHandler(this.tempojogo_Tick);
             // 
             // Form1
             // 
@@ -224,6 +269,10 @@
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(261, 386);
+            this.Controls.Add(this.PlacarO);
+            this.Controls.Add(this.PlacarX);
+            this.Controls.Add(this.O);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.Reiniciar);
@@ -264,9 +313,13 @@
         private System.Windows.Forms.Button button32;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button Reiniciar;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label O;
+        private System.Windows.Forms.Label PlacarX;
+        private System.Windows.Forms.Label PlacarO;
+        private System.Windows.Forms.Timer tempojogo;
     }
 }
 
